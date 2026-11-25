@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An interactive gravity sandbox for experimenting with orbital mechanics.">
+<title>APOGEE — Orbital Lab</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header><a class="brand" href="./"><span class="mark">◉</span> APOGEE <small>ORBITAL LAB</small></a><span class="status" id="status">● RUNNING</span></header>
+<main>
+  <section class="intro"><p class="eyebrow">INTERACTIVE GRAVITY SANDBOX</p><h1>Give gravity<br>something to <em>do.</em></h1></section>
+  <div class="lab">
+    <section class="viewport" aria-label="Orbital simulation">
+      <canvas id="space" tabindex="0" aria-label="Orbit plot. Drag to launch a probe, or press Enter to launch a default probe."></canvas>
+      <div class="view-label">ORBIT PLOT <span id="scenario">RESONANCE</span></div>
+      <div class="scale" aria-hidden="true">− ───── +</div>
+      <div class="hint">Drag to launch a probe <span>·</span> Enter for keyboard launch</div>
+    </section>
+    <aside>
+      <div class="panel"><h2>Scenarios</h2>
+      <div class="presets" id="presets">
+        <button data-preset="resonance" aria-pressed="true"><b>Resonance</b><span>Three worlds in orbit</span></button>
+        <button data-preset="binary" aria-pressed="false"><b>Binary stars</b><span>Two suns, one barycenter</span></button>
+        <button data-preset="flyby" aria-pressed="false"><b>Gravity assist</b><span>A probe on approach</span></button>
+      </div></div>
+      <div class="panel"><h2>Time controls</h2>
+        <label for="speed">Speed <output id="speed-value">1×</output></label>
+        <input type="range" id="speed" min="0.25" max="4" value="1" step="0.25">
+        <div class="actions"><button id="pause" type="button">Ⅱ Pause</button><button id="reset" type="button">↺ Reset</button></div>
+        <label class="toggle"><input type="checkbox" id="trails" checked> Show orbital trails</label>
+      </div>
+    </aside>
+  </div>
+  <footer><span><strong id="count">4</strong> BODIES</span><span><strong id="elapsed">0.0</strong> SIM TIME</span><span>NEWTONIAN GRAVITY <i> / </i> VELOCITY VERLET</span></footer>
+</main>
+</body>
+</html>
